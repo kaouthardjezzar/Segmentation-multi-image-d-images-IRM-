@@ -13,7 +13,6 @@ def json_annot_to_png_annot (annotation_directory, images_path, annotaion_file):
         data = json.load(json_file)
     # loading images
     train_images = [f for f in os.listdir(images_path) if f.endswith('.jpg')]
-    # train_images = glob.glob(images_path + "*.jpg")# edit : take list of files in directory only that end with jpg 
     for img in train_images:
         image = cv2.imread(os.path.join(images_path,img))
         try:
@@ -21,9 +20,7 @@ def json_annot_to_png_annot (annotation_directory, images_path, annotaion_file):
             print("checked for shape".format(image.shape))
         except AttributeError:
             print("shape not found")
-        # dimensions = image.shape
         file_name = str(img).replace(".jpg", "")
-        # file_name = file_name.replace(".jpg", "")
         os.chdir(annotation_directory)
         tmp = np.zeros(dimensions).astype('uint8')
         for d in data:
