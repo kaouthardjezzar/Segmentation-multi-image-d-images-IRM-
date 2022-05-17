@@ -1,10 +1,122 @@
 <html>
     <head>
         <title>
-            
+            Projet Vision : Segmentation des lésions dans les images IRM
         </title>
-    </head>
-    <body>
+        <script>
+            function addLine() {
 
+                var refTable = document.getElementById("image_table");
+                for (let i = 0 ; i < 20; i++) {
+                    var nouvelleLigne = refTable.insertRow(i+1);
+
+                    var nouvelleCellule1 = nouvelleLigne.insertCell(0);
+                    var nouvelleCellule2 = nouvelleLigne.insertCell(1)
+
+                    var img1 = document.createElement('img');
+                    img1.src =
+                    "./Br35H-Mask-RCNN/TRAIN/y"+str(i)+".jpg";
+                    var img2 = document.createElement('img');
+                    img2.src =
+                    "./Br35H-Mask-RCNN/TRAIN_ANNOT/y"+str(i)+".png";
+                    nouvelleCellule1.appendChild(img1);
+                    nouvelleCellule2.appendChild(img2)
+            }
+        }
+        </script>
+        <style>
+            table,
+            th,
+            td {
+                padding: 10px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body onload="addLine()">
+        <H1>
+            Segmentation des tumeurs cérébrales dans des images IRM :
+        </H1>
+        <p>
+            Les tumeurs cérébrales sont complexes. Il existe de nombreuses anomalies dans leurs tailles et leurs emplacements. Ce qui rend difficile la compréhension complète de la nature de la tumeur. En outre, un neurochirurgien professionnel est requis pour l'analyse IRM.
+        </p>
+        <p>
+            Souvent, dans les pays en développement, le manque de médecins compétents et le manque de connaissances sur les tumeurs rendent la génération de rapports à partir de la RM très difficile et chronophage.
+        </p>
+        <p>
+            Ainsi, l'automatisation de cette tâche peut résoudre ce problème
+        </p>
+        <H1>
+            Examples de données :
+        </H1>
+        <table id="image_table">
+            <tr>
+                <th>Image IRM</th>
+                <th>Annotation de la tumeur</th>
+            </tr>
+            <!-- <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y20.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y20.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y34.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y34.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y102.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y102.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y284.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y284.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y423.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y423.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y12.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y12.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y98.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y98.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y65.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y65.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y77.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y77.png", width="500", height="500"></th>
+            </tr>
+            <tr>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN/y192.jpg", width="500", height="500"></th>
+                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y192.png", width="500", height="500"></th>
+            </tr> -->
+         </table>
+         <H1>
+            Automatiser la tache de segmentation des tumeurs :
+        </H1>
+        <H2>
+            Solution 1 : Architecture UNet
+        </H2>
+        <H2>
+            Solution 2 : Architecture UNet - CAM
+        </H2>
+        <table>
+            <tr>
+                <th>Architecture</th>
+                <th>Evaluation</th>
+            </tr>
+            <tr>
+                <td><img src="./figures/cam_unet.PNG", width="700", height="700"></td>
+                <td><img src ="./figures/eval_cam.PNG" , width="700", height="700"></td>
+            </tr>
+            <h3>
+                Résultats : UNet - CAM 
+            </h3>
+        </table>
     </body>
 </html>
