@@ -11,17 +11,55 @@
                     var nouvelleLigne = refTable.insertRow(i+1);
 
                     var nouvelleCellule1 = nouvelleLigne.insertCell(0);
-                    var nouvelleCellule2 = nouvelleLigne.insertCell(1)
+                    var nouvelleCellule2 = nouvelleLigne.insertCell(1);
 
                     var img1 = document.createElement('img');
-                    img1.src =
-                    "./Br35H-Mask-RCNN/TRAIN/y"+str(i)+".jpg";
+                    img1.src = "./Br35H-Mask-RCNN/TRAIN/y"+(i+20).toString()+".jpg";
+                    img1.height = "500";
+                    img1.width = "500";
+
                     var img2 = document.createElement('img');
-                    img2.src =
-                    "./Br35H-Mask-RCNN/TRAIN_ANNOT/y"+str(i)+".png";
+                    img2.src = "./Br35H-Mask-RCNN/TRAIN_ANNOT/y"+(i+20).toString()+".png";
+                    img2.height = "500";
+                    img2.width = "500";
+
                     nouvelleCellule1.appendChild(img1);
-                    nouvelleCellule2.appendChild(img2)
+                    nouvelleCellule2.appendChild(img2);
             }
+        }
+        function addLine1() {
+
+            var refTable = document.getElementById("image_table1");
+            for (let i = 0 ; i < 20; i++) {
+                var nouvelleLigne = refTable.insertRow(i+1);
+
+                var nouvelleCellule1 = nouvelleLigne.insertCell(0);
+                var nouvelleCellule2 = nouvelleLigne.insertCell(1);
+                var nouvelleCellule3 = nouvelleLigne.insertCell(2)
+
+                var img1 = document.createElement('img');
+                img1.src = "./Br35H-Mask-RCNN/TEST/y"+(i+720).toString()+".jpg";
+                img1.height = "500";
+                img1.width = "500";
+
+                var img2 = document.createElement('img');
+                img2.src = "./Br35H-Mask-RCNN/TEST_ANNOT/y"+(i+720).toString()+".png";
+                img2.height = "500";
+                img2.width = "500";
+
+                var img3 = document.createElement('img');
+                img3.src = "./Prediction/y"+(i+720).toString()+".png";
+                // img3.height = "300";
+                // img3.width = "300";
+
+                nouvelleCellule1.appendChild(img1);
+                nouvelleCellule2.appendChild(img2);
+                nouvelleCellule3.appendChild(img3);
+            }
+        }
+        function start () {
+            addLine();
+            addLine1();
         }
         </script>
         <style>
@@ -32,9 +70,23 @@
                 border: 1px solid black;
                 border-collapse: collapse;
             }
+            #divConteneur{
+                min-height:500px;
+                height:500px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
+                min-width:1000px;
+                width:1100px;/*pour IE qui comprend rien*/
+                overflow:auto;/*pour activer les scrollbarres*/
+            }
+            #divConteneur1{
+                min-height:500px;
+                height:500px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
+                min-width:1500px;
+                width:1500px;/*pour IE qui comprend rien*/
+                overflow:auto;/*pour activer les scrollbarres*/
+            }
         </style>
     </head>
-    <body onload="addLine()">
+    <body onload="start()">
         <H1>
             Segmentation des tumeurs cérébrales dans des images IRM :
         </H1>
@@ -50,52 +102,14 @@
         <H1>
             Examples de données :
         </H1>
+        <div id="divConteneur">
         <table id="image_table">
             <tr>
                 <th>Image IRM</th>
                 <th>Annotation de la tumeur</th>
             </tr>
-            <!-- <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y20.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y20.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y34.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y34.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y102.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y102.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y284.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y284.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y423.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y423.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y12.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y12.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y98.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y98.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y65.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y65.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y77.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y77.png", width="500", height="500"></th>
-            </tr>
-            <tr>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN/y192.jpg", width="500", height="500"></th>
-                <th><img src="./Br35H-Mask-RCNN/TRAIN_ANNOT/y192.png", width="500", height="500"></th>
-            </tr> -->
          </table>
+        </div>
          <H1>
             Automatiser la tache de segmentation des tumeurs :
         </H1>
@@ -114,9 +128,25 @@
                 <td><img src="./figures/cam_unet.PNG", width="700", height="700"></td>
                 <td><img src ="./figures/eval_cam.PNG" , width="700", height="700"></td>
             </tr>
-            <h3>
-                Résultats : UNet - CAM 
-            </h3>
         </table>
+        <h3>
+            Résultats : UNet - CAM
+        </h3>
+        <h4>
+            Overview :
+        </h4>
+        <img src = "figures/cam_results.PNG"/>
+        <h4>
+            Sur des données de Test : 
+        </h4>
+        <div id="divConteneur1">
+            <table id="image_table1" onload="addLine1()">
+                <tr>
+                    <th>Image IRM</th>
+                    <th>Annotation de la tumeur</th>
+                    <th>Prédiction du modèle</th>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
