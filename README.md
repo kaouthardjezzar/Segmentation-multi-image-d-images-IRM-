@@ -3,15 +3,16 @@
 ## dataset 
 https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection
 
-## Unet 
+config.py file containes the construction of different paths, you need to change the base_path in it before you execute the project. 
 
-https://www.kaggle.com/code/marto24/brain-tumor-detection
+Pre_Process_Data.ipynb was used to generate annotations from json files, and define the dataset. 
 
+## Unet architecture : 
+Is defined in the UNet.ipynb file 
 
-https://github.com/AryaKoureshi/Brain-tumor-detection /// THIS ONE 
+## Unet CAM acrchitecture : 
+Is defined in the CAMUnet.ipynb file 
+eigen_cam.ipynb was used to generate class acivation map for images.
 
-## CAM 
-
-https://github.com/west-gates/3DCNN-Vis //  BUT CLASSIFICATION 
-
-https://github.com/CChenLi/CAM-Segmentation // 2D 
+## Html page 
+web_page.html is the web page describing the project. 
