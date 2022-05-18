@@ -38,17 +38,17 @@
                 var nouvelleCellule3 = nouvelleLigne.insertCell(2)
 
                 var img1 = document.createElement('img');
-                img1.src = "./Br35H-Mask-RCNN/TEST/y"+(i+730).toString()+".jpg";
+                img1.src = "./Br35H-Mask-RCNN/TEST/y"+(i+740).toString()+".jpg";
                 img1.height = "500";
                 img1.width = "500";
 
                 var img2 = document.createElement('img');
-                img2.src = "./Br35H-Mask-RCNN/TEST_ANNOT/y"+(i+730).toString()+".png";
+                img2.src = "./Br35H-Mask-RCNN/TEST_ANNOT/y"+(i+740).toString()+".png";
                 img2.height = "500";
                 img2.width = "500";
 
                 var img3 = document.createElement('img');
-                img3.src = "./Prediction/y"+(i+730).toString()+".png";
+                img3.src = "./Prediction/y"+(i+740).toString()+".png";
                 // img3.height = "300";
                 // img3.width = "300";
 
@@ -100,12 +100,29 @@
         }
         </script>
         <style>
-            table,
-            th,
-            td {
-                padding: 10px;
-                border: 1px solid black;
+            table {
                 border-collapse: collapse;
+                font-family: Tahoma, Geneva, sans-serif;
+            }
+            table td {
+                padding: 15px;
+            }
+            table thead td {
+                background-color: #54585d;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 13px;
+                border: 1px solid #54585d;
+            }
+            table tbody td {
+                color: #636363;
+                border: 1px solid #dddfe1;
+            }
+            table tbody tr {
+                background-color: #f9fafb;
+            }
+            table tbody tr:nth-child(odd) {
+                background-color: #ffffff;
             }
             #divConteneur{
                 min-height:500px;
@@ -121,13 +138,10 @@
                 width:1500px;/*pour IE qui comprend rien*/
                 overflow:auto;/*pour activer les scrollbarres*/
             }
-            #divConteneur2{
-                min-height:500px;
-                height:500px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
-                min-width:1500px;
-                width:1500px;/*pour IE qui comprend rien*/
-                overflow:auto;/*pour activer les scrollbarres*/
-            }
+
+            h1 { color: #7c7934; font-family: 'Trocchi', serif; font-size: 40px; font-weight: bold; line-height: 48px; margin: 0; }
+            h2 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 28px; font-weight: bold; line-height: 32px; margin: 0 0 24px; }
+            p { color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; line-height: 32px; margin: 0 0 24px; }
         </style>
     </head>
     <body onload="start()">
@@ -192,7 +206,7 @@
         <h4>
             Sur des données de Test :
         </h4>
-        <div id="divConteneur2">
+        <div id="divConteneur1">
             <table id="image_table2">
                 <tr>
                     <th>Image IRM</th>
