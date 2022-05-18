@@ -38,17 +38,17 @@
                 var nouvelleCellule3 = nouvelleLigne.insertCell(2)
 
                 var img1 = document.createElement('img');
-                img1.src = "./Br35H-Mask-RCNN/TEST/y"+(i+720).toString()+".jpg";
+                img1.src = "./Br35H-Mask-RCNN/TEST/y"+(i+730).toString()+".jpg";
                 img1.height = "500";
                 img1.width = "500";
 
                 var img2 = document.createElement('img');
-                img2.src = "./Br35H-Mask-RCNN/TEST_ANNOT/y"+(i+720).toString()+".png";
+                img2.src = "./Br35H-Mask-RCNN/TEST_ANNOT/y"+(i+730).toString()+".png";
                 img2.height = "500";
                 img2.width = "500";
 
                 var img3 = document.createElement('img');
-                img3.src = "./Prediction/y"+(i+720).toString()+".png";
+                img3.src = "./Prediction/y"+(i+730).toString()+".png";
                 // img3.height = "300";
                 // img3.width = "300";
 
@@ -58,22 +58,21 @@
             }
         }
         function addLine2() {
-            
+
             var refTable = document.getElementById("image_table2");
 
             var array = [713, 719, 726, 730, 736, 746, 761, 762, 777, 796]
 
-            for(let i = 0; i < array.length; i++){ 
+            for(let i = 0; i < array.length; i++){
 
                 var nouvelleLigne = refTable.insertRow(i+1);
-                    
+
                 var nouvelleCellule1 = nouvelleLigne.insertCell(0);
                 var nouvelleCellule2 = nouvelleLigne.insertCell(1);
                 var nouvelleCellule3 = nouvelleLigne.insertCell(2);
                 var img1 = document.createElement('img');
                 img1.src = "./unet_test/y"+(array[i]).toString()+".jpg";
-                print(array[i])
-             
+
                 img1.height = "500";
                 img1.width = "500";
 
@@ -90,9 +89,9 @@
                 nouvelleCellule1.appendChild(img1);
                 nouvelleCellule2.appendChild(img2);
                 nouvelleCellule3.appendChild(img3);
-            } 
-  
-      
+            }
+
+
         }
         function start () {
             addLine();
@@ -191,10 +190,10 @@
         <img src = "figures/unet_results.PNG", width="1400", height="700"/>
 
         <h4>
-            Sur des données de Test : 
+            Sur des données de Test :
         </h4>
         <div id="divConteneur2">
-            <table id="image_table2" onload="addLine2()">
+            <table id="image_table2">
                 <tr>
                     <th>Image IRM</th>
                     <th>Annotation de la tumeur</th>
@@ -210,10 +209,10 @@
         </h4>
         <img src = "figures/cam_results.PNG"/>
         <h4>
-            Sur des données de Test : 
+            Sur des données de Test :
         </h4>
         <div id="divConteneur1">
-            <table id="image_table1" onload="addLine1()">
+            <table id="image_table1">
                 <tr>
                     <th>Image IRM</th>
                     <th>Annotation de la tumeur</th>
